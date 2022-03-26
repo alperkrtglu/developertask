@@ -1,0 +1,29 @@
+enum PlayerPosition {
+    POINT_GUARD,
+    SHOOTING_GUARD,
+    SMALL_FORWARD,
+    POWER_FORWARD,
+    CENTER
+}
+
+type Player {
+    id: ID,
+    name: String,
+    surname: String,
+    position: PlayerPosition
+}
+
+input PlayerDto {
+    name: String!,
+    surname: String!,
+    position: PlayerPosition!
+}
+
+type Query {
+    getPlayers: [Player]
+}
+
+type Mutation {
+    addPlayer(dto:PlayerDto!):Player
+    deletePlayer(id:ID!):ID
+}
